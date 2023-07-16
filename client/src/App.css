@@ -19,18 +19,43 @@
   --brn: #BF773C;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--wht);
+  color: var(--wht);
+  padding: 0 2rem;
+  height: 5rem;
+}
+
 body {
   background-color: var(--drk);
   color: var(--wht);
+  justify-content: center;
 }
 
 a {
-  color: var(--wht);
+  color: var(--blk);
   font-family: var(--bodyFont);
   font-weight: bold;
   text-decoration: none;
+  padding: 0 1rem;
+  justify-content: center;
 }
 
 a:hover {
   color: var(--ylw);
+}
+
+.Signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blk);
+  color: var(--wht);
+  padding: 0 2rem;
+  height: 100vh;
 }
