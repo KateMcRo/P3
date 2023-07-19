@@ -1,28 +1,34 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../../src/App.css";
+import { NavLink } from "react-router-dom";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Plantastic
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -36,8 +42,8 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email: data.get("email"),
+      password: data.get("password"),
     });
   };
 
@@ -48,18 +54,23 @@ export default function SignUp() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -105,7 +116,9 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  control={
+                    <Checkbox value="allowExtraEmails" color="primary" />
+                  }
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
@@ -120,9 +133,9 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <NavLink to="/login" variant="body2">
                   Already have an account? Sign in
-                </Link>
+                </NavLink>
               </Grid>
             </Grid>
           </Box>
@@ -133,10 +146,9 @@ export default function SignUp() {
   );
 }
 
-// Paul's code 
+// Paul's code
 // import React from "react";
 // import { useState } from "react";
-
 
 // export default function Signup(){
 //     const [email, setEmail] = useState("");
@@ -147,11 +159,10 @@ export default function SignUp() {
 //     const [usernameHasErr, setUsernameHasErr] = useState(false);
 //     const [confrimPassword, setConfirmPassword] = useState("");
 
-
 //     function handleEmailChange(e){
 //         setEmail(e.target.value);
 //     }
-   
+
 //     function handleEmailBlur(){
 //         const regexEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 //         if(!regexEmail.test(email)){
@@ -163,7 +174,7 @@ export default function SignUp() {
 //     function handlePasswordChange(e){
 //         setPassword(e.target.value);
 //     }
-    
+
 //     function handlePasswordBlur(){
 //         const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/;
 //         if(!regexPassword.test(password)){
@@ -198,10 +209,8 @@ export default function SignUp() {
 //         }
 //     }
 
-    
-    
 //     return( <div>
-//        <h1>I am the Signup page.</h1> 
+//        <h1>I am the Signup page.</h1>
 //        <form>
 //         <div>
 //             <label for="email" className="form-label"
@@ -213,7 +222,7 @@ export default function SignUp() {
 //         </div>
 
 //         <div >
-//             <label for="username" 
+//             <label for="username"
 //             className="form-label">
 //                 Username:
 //             </label>
@@ -244,7 +253,7 @@ export default function SignUp() {
 //             {passwordHasErr && <p className="text-danger">Your password does not match.</p>}
 //         </div>
 //         </form>
-        
+
 //         </div>
 //         );
 // }
