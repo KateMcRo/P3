@@ -24,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npx -p typescript@4.x -- tsc -p ./jsconfig.json",
+    "fmt": "npx -p prettier@2.x -- prettier -w '**/*.{js,md}'"
   },
   "eslintConfig": {
     "extends": [
