@@ -1,4 +1,5 @@
 import { ApolloServer } from "@apollo/server";
+import { authMiddleware } from "./utils/auth.js";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import express from "express";
@@ -10,6 +11,11 @@ import connection from "./config/connection.js";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import jwt from "jsonwebtoken";
+
+let secret = process.env.JWT_SECRET;
+secret = "mysecretsshhhhh"
+const expiration = "2h";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,7 +45,18 @@ if (process.env.NODE_ENV === "production") {
 app.use(
   "/graphql",
   expressMiddleware(server, {
-    context: async ({ req }) => ({ token: req.headers.token }),
+    context: async ({ req }) => {
+      console.log("HEADERS",req.headers)
+       let token =  req.headers.authorization;
+       let user = null;
+       try {
+    const { data } = jwt.verify(token, secret, { maxAge: expiration });
+    user = data;
+  } catch {
+    console.error("Invalid token");
+  }
+      return {user}
+    }
   })
 );
 

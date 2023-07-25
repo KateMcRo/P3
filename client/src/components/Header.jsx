@@ -19,6 +19,7 @@ import {
   LocalFlorist,
 } from "@mui/icons-material/";
 import useAuthService from "../utils/authHook";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 const AppBar = styled(MuiAppBar, {
@@ -87,6 +88,7 @@ const useNavHandlers = () => {
 };
 
 function Nav({ open, toggleDrawer }) {
+  const navigate = useNavigate();
   const Auth = useAuthService();
   function handleLogout() {
     Auth.logout();
@@ -130,12 +132,13 @@ function Nav({ open, toggleDrawer }) {
           <IconButton color="inherit"></IconButton>
 
           <IconButton
+          style={{border: "1px solid red"}}
             color="inherit"
             disabled={!Auth.isLoggedIn()}
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   <NavLink to="/accountInfo" />;
-            // }}
+            onClick={(e) => {
+              e.preventDefault();
+               navigate("/accountInfo");
+            }}
           >
             <PersonIcon />
           </IconButton>

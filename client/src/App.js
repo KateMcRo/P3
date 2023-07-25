@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import Login from "./pages/Login";
 import MyGarden from "./pages/MyGarden";
 import PlantDetails from "./pages/PlantDetails";
+import AccountInfo from "./pages/AccountInfo"
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Header />
       <Box sx={{ marginTop: "60px", width: "100%" }}>
         <Routes>
-          {/* <Route path="/accountInfo" element={<AccountInfo />} /> */}
+          <Route path="/accountInfo" element={<AccountInfo />} />
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

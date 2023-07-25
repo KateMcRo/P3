@@ -113,10 +113,11 @@ const resolvers = {
       }
     },
     // Mutation to update a user
-    updateUser: async (parent, { id, username, email }) => {
+    updateUser: async (parent, { username, email }, context) => {
+      console.log("this is the context",context)
       try {
         const user = await User.findByIdAndUpdate(
-          id,
+          context.user._id,
           {
             username: username,
             email: email,

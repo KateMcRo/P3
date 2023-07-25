@@ -21,7 +21,7 @@ import { UPDATE_USER } from "../utils/mutations";
 
 
 export default function AccountInfo() {
-const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+const [userFormData, setUserFormData] = useState({ email: "", username: "" });
 const [validated] = useState(false);
 const [showAlert, setShowAlert] = useState(false);
 const [updateUser, { error }] = useMutation(UPDATE_USER);
@@ -53,7 +53,7 @@ const handleFormSubmit = async (event) => {
     }
     setUserFormData({
         email: "",
-        password: "",
+        username: "",
     });
 };
 
