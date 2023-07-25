@@ -4,6 +4,7 @@ import { useLazyQuery, useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 import { useNavigate } from "react-router-dom";
 import client from "../client";
+import { Grid, FormRow, ListItem } from "@mui/material";
 
 export default function MyGarden() {
   /* FOR JOHN AND MANNINDER REMOVE BEFORE DEPLOYMENT */
@@ -44,38 +45,32 @@ export default function MyGarden() {
   }
 
   return (
-    <div>
+    <Grid container spacing={2}>
       {useMockData &&
-        mockPlantData.map((item) => {
-          return (
-            <div>
-              {/* All Material UI stuff will go inside this div */}
-              <img
-                src={item.img}
-                alt=""
-                onClick={() => {
-                  handleClick(item.id);
-                }}
-              />
-            </div>
-          );
-        })}
+        mockPlantData.map((item) => (
+          <Grid item xs={12} sm={6} md={4} key={item.id}>
+            <img
+              src={item.img}
+              alt=""
+              onClick={() => {
+                handleClick(item.id);
+              }}
+            />
+          </Grid>
+        ))}
       {!useMockData &&
         data &&
-        data.user.plants?.map((plant) => {
-          return (
-            <div>
-              {/* All Material UI stuff will go inside this div */}
-              <img
-                src={plant.img}
-                alt=""
-                onClick={() => {
-                  handleClick(plant._id);
-                }}
-              />
-            </div>
-          );
-        })}
-    </div>
+        data.user.plants?.map((plant) => (
+          <Grid item xs={12} sm={6} md={4} key={plant._id}>
+            <img
+              src={plant.img}
+              alt=""
+              onClick={() => {
+                handleClick(plant._id);
+              }}
+            />
+          </Grid>
+        ))}
+    </Grid>
   );
 }

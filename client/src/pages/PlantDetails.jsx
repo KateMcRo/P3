@@ -67,7 +67,7 @@ export default function PlantDetails() {
       {!useMockData && (
         <div>
           {singlePlantData?.plant?.commonName}
-          <Button variant="contained" color="primary" onClick={deletePlant}>
+          <Button variant="contained" color="success" onClick={deletePlant}>
             DELETE PLANT
           </Button>
         </div>

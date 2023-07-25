@@ -14,8 +14,12 @@ import { NavLink } from "react-router-dom";
 // get he house/home icon from material ui
 import {
   House as HouseIcon,
+  LoginOutlined,
   Notifications,
   Outbound,
+  Person2,
+  Person3Outlined,
+  PersonAddAlt1,
   Person2Rounded as PersonIcon,
   Search,
   LocalFlorist,
@@ -103,7 +107,7 @@ function Nav(
       <AppBar position="absolute" open={open}>
         <Toolbar
           sx={{
-            bgcolor: "#333333",
+            bgcolor: "#013927",
             pr: "24px", // keep right padding when drawer closed
           }}
         >
@@ -129,9 +133,6 @@ function Nav(
             Plantastic
           </Typography>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <Notifications />
-            </Badge>
           </IconButton>
 
           <IconButton color="inherit" disabled={!Auth.isLoggedIn()}

@@ -75,7 +75,7 @@ export default function Login() {
           }}
         >
           {/* login with logo */}
-          <Avatar sx={{ bgcolor: "secondary.main" }}>
+          <Avatar sx={{ bgcolor: "#e1c340" }}>
             <LockIcon sx={{ alignSelf: "center" }} />
           </Avatar>
 
@@ -117,7 +117,7 @@ export default function Login() {
             )} */}
           </FormControl>
 
-          <Button type="submit" variant="contained" sx={{ width: "100%" }}>
+          <Button type="submit" variant="contained" sx={{ width: "100%", bgcolor: "#013927" }}>
             Login
           </Button>
 
