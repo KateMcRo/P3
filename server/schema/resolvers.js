@@ -11,16 +11,13 @@ const resolvers = {
       if (token) {
         const validToken = await jwt.verify(token, "mysecretsshhhhh");
         const user = await User.findById(validToken._id).populate("plants");
-        console.log({ validToken });
         return user;
       }
     },
     // Query for a single user
     user: async (parent, { id }) => {
-      console.log("id here", id);
       try {
         const user = await User.findById(id).populate("plants");
-        console.log({ user });
         return user;
       } catch (error) {
         throw new Error("Failed to fetch user");
@@ -39,7 +36,6 @@ const resolvers = {
     },
     // Query for a single plant
     plant: async (parent, { id }) => {
-      console.log(id);
       try {
         const plant = await Plant.findById(id);
         return plant;
@@ -49,7 +45,6 @@ const resolvers = {
     },
     // Query for all plants
     plants: async (parent, { user_id }) => {
-      console.log(user_id);
       try {
         const user = await User.findById(user_id).populate("plants");
         return user;
@@ -91,7 +86,6 @@ const resolvers = {
         }
 
         const plantNotes = plant.plantNotes;
-        // console.log(plantNotes)
         return plantNotes;
       } catch (error) {
         throw new Error("Failed to fetch plantnotes");
@@ -131,7 +125,6 @@ const resolvers = {
         ).populate("plants");
 
         const token = signToken(user); // Generate token using updated user
-        console.log(user);
         return { token, user };
       } catch (error) {
         console.error(error.message);
@@ -333,7 +326,7 @@ const resolvers = {
           .populate("plantsWithNotis");
         return user;
       } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         throw new Error("Failed to set plant notifications");
       }
     },
@@ -350,7 +343,7 @@ const resolvers = {
           .populate("plantsWithNotis");
         return user;
       } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         throw new Error("Failed to set plant notifications");
       }
     },

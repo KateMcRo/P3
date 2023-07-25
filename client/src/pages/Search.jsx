@@ -19,10 +19,8 @@ export default function Search() {
         body: JSON.stringify({ searchTerm: search }),
       });
       const plantData = await response.json();
-      console.log({ plantData });
       setData(plantData.data);
     } catch (e) {
-      console.log(e)
     } finally {
       setLoading(false);
     }
@@ -63,7 +61,15 @@ export default function Search() {
                 required
                 min="1"
               />
-              <Button variant="contained" color="success" type="click" onClick={handleApi} onKeyDown={(e) => {return e.key === 13? handleApi:{}}}>
+              <Button
+                variant="contained"
+                color="success"
+                type="click"
+                onClick={handleApi}
+                onKeyDown={(e) => {
+                  return e.key === 13 ? handleApi : {};
+                }}
+              >
                 Click to search
               </Button>
             </Stack>

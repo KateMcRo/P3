@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Search from "./pages/Search.jsx";
@@ -9,12 +9,8 @@ import { Box } from "@mui/material";
 import Login from "./pages/Login";
 import MyGarden from "./pages/MyGarden";
 import PlantDetails from "./pages/PlantDetails";
-import useAuthService from "./utils/authHook";
-//import AccountInfo from "./pages/AccountInfo";
 
 function App() {
-  const Auth = useAuthService();
-  const loggedIn = Auth.loggedIn();
   return (
     <Box
       className="App debug-outline"
@@ -29,14 +25,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/search" element={<Search />} />
-          <Route
-            path="/mygarden"
-            element={loggedIn ? <MyGarden /> : <Navigate to="/signup" />}
-          />
-          <Route
-            path="/plantdetails/:plantId"
-            element={loggedIn ? <PlantDetails /> : <Navigate to="/signup" />}
-          />
+          <Route path="/mygarden" element={<MyGarden />} />
+          <Route path="/plantdetails/:plantId" element={<PlantDetails />} />
           <Route path="*" element={<>You are so lost now. Go home</>} />
         </Routes>
       </Box>

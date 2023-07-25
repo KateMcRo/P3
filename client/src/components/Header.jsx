@@ -1,6 +1,6 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Badge, Button, ListItem } from "@mui/material";
+import { Button, ListItem } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
@@ -11,15 +11,9 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-// get he house/home icon from material ui
 import {
   House as HouseIcon,
-  LoginOutlined,
-  Notifications,
   Outbound,
-  Person2,
-  Person3Outlined,
-  PersonAddAlt1,
   Person2Rounded as PersonIcon,
   Search,
   LocalFlorist,
@@ -92,12 +86,7 @@ const useNavHandlers = () => {
   return { openDrawer, closeDrawer, navStates, toggleDrawer };
 };
 
-function Nav(
-  /** @type{{open:boolean,toggleDrawer:(e?:React.SyntheticEvent)=>any}}*/ {
-    open,
-    toggleDrawer,
-  }
-) {
+function Nav({ open, toggleDrawer }) {
   const Auth = useAuthService();
   function handleLogout() {
     Auth.logout();
@@ -130,12 +119,19 @@ function Nav(
             noWrap
             sx={{ flexGrow: 1 }}
           >
-            Plantastic
+            <span
+              style={{
+                fontFamily: "var(--mainFont)",
+              }}
+            >
+              Plantastic
+            </span>
           </Typography>
-          <IconButton color="inherit">
-          </IconButton>
+          <IconButton color="inherit"></IconButton>
 
-          <IconButton color="inherit" disabled={!Auth.isLoggedIn()}
+          <IconButton
+            color="inherit"
+            disabled={!Auth.isLoggedIn()}
             // onClick={(e) => {
             //   e.preventDefault();
             //   <NavLink to="/accountInfo" />;

@@ -1,30 +1,5 @@
 import { gql } from "@apollo/client";
 
-/* type User {
-    _id: ID!
-    username: String!
-    email: String!
-    plants: [Plant]
-  }
-
-  type Plant {
-    _id: ID!
-    latinName: String!
-    commonName: String!
-    img: String!
-    idealLight: String!
-    watering: String!
-    username: String!
-    notification: Boolean!
-    plantNotes: [Plantnote]
-  }
-
-  type Plantnote {
-    _id: ID!
-    note: String!
-    username: String!
-    createdAt: String
-    */
 export const QUERY_USERS = gql`
   query users {
     users {

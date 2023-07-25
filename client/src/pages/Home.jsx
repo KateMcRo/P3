@@ -36,19 +36,6 @@ export default function Home() {
           </Button>
         </Stack>
       </Box>
-
-      {/* two columns */}
-      {/* <Box className="callToAction">
-        <h2>some heading</h2>
-        <p>some caption goes here</p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore
-          tempore dicta ex odio quasi quia! Unde repellat eius dignissimos,
-          dolore optio impedit inventore officiis, dicta, debitis itaque enim!
-          Quam, obcaecati.
-        </p>
-       
-      </Box> */}
     </Box>
   );
-} //We updated a lot of the UI
+}
